@@ -14,6 +14,7 @@ var (
 	useNumbersInput   = buildUseNumbersInput()
 	useSpecialsInput  = buildUseSpecialsInput()
 	toFileInput       = buildToFileInput()
+	toClipboardInput  = buildToClipboardInput()
 )
 
 func main() {
@@ -26,6 +27,10 @@ func main() {
 	))
 
 	println(password)
+
+	if toClipboard := toClipboardInput.PrintAndRead(); toClipboard {
+		export.ToClipboard(password)
+	}
 
 	if toFile := toFileInput.PrintAndRead(); toFile {
 		export.ToFile(password)
@@ -69,6 +74,12 @@ func buildUseSpecialsInput() *input.YesNo {
 
 func buildToFileInput() *input.YesNo {
 	tofile := input.NewYesNo("", "Create text file with password?", false)
+
+	return tofile
+}
+
+func buildToClipboardInput() *input.YesNo {
+	tofile := input.NewYesNo("", "Copy password to clipboard?", false)
 
 	return tofile
 }
