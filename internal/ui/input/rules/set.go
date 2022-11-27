@@ -44,8 +44,8 @@ func (s *Set) Validate(value string) (
 
 func (s *Set) PrintError(ruleName string) {
 	if message, ok := s.Messages[ruleName]; ok {
-		println(" ✗ " + message)
+		println(" × " + message)
 	} else {
-		println(" ✗ " + ruleName)
+		println(" × " + ruleName)
 	}
 }

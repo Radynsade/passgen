@@ -33,47 +33,42 @@ func main() {
 }
 
 func buildLengthInput() *input.Number {
-	length := input.NewNumber("", "Длина пароля", false)
+	length := input.NewNumber("", "Password length", false)
 	length.AddRule(rules.IsInteger())
 	length.SetMin(3, true)
-	length.SetMessage("isFloat", "Невозможно преобразовать в число.")
-	length.SetMessage("isInteger", "Число должно быть целым.")
-	length.SetMessage("minNumber", "Пароль не может быть меньше трёх символов.")
+	length.SetMessage("isFloat", "It is not a number.")
+	length.SetMessage("isInteger", "Must be an integer.")
+	length.SetMessage("minNumber", "Password cannot be less than 3 characters.")
 
 	return length
 }
 
 func buildUseLowercaseInput() *input.YesNo {
-	lowercase := input.NewYesNo("", "Использовать латинские буквы нижнего регистра? (y/n)", false)
-	lowercase.SetMessage("oneOf", "Введите y или n.")
+	lowercase := input.NewYesNo("", "Use latin lowercase letters?", false)
 
 	return lowercase
 }
 
 func buildUseUppercaseInput() *input.YesNo {
-	uppercase := input.NewYesNo("", "Использовать латинские буквы верхнего регистра? (y/n)", false)
-	uppercase.SetMessage("oneOf", "Введите y или n.")
+	uppercase := input.NewYesNo("", "Use latin uppercase letters?", false)
 
 	return uppercase
 }
 
 func buildUseNumbersInput() *input.YesNo {
-	numbers := input.NewYesNo("", "Использовать цифры? (y/n)", false)
-	numbers.SetMessage("oneOf", "Введите y или n.")
+	numbers := input.NewYesNo("", "Use numbers?", false)
 
 	return numbers
 }
 
 func buildUseSpecialsInput() *input.YesNo {
-	specials := input.NewYesNo("", "Использовать специальные символы (. @ # $ % ...)? (y/n)", false)
-	specials.SetMessage("oneOf", "Введите y или n.")
+	specials := input.NewYesNo("", "Use special characters? (. @ # $ % ...)?", false)
 
 	return specials
 }
 
 func buildToFileInput() *input.YesNo {
-	tofile := input.NewYesNo("", "Создать текстовой файл с паролем? (y/n)", false)
-	tofile.SetMessage("oneOf", "Введите y или n.")
+	tofile := input.NewYesNo("", "Create text file with password?", false)
 
 	return tofile
 }

@@ -18,6 +18,7 @@ func NewYesNo(
 ) *YesNo {
 	rulesSet := rules.NewSet()
 	rulesSet.AddRule(rules.OneOf("y", "n"))
+	rulesSet.SetMessage("oneOf", "Type 'y' or 'n'.")
 
 	return &YesNo{
 		Set: rulesSet,
@@ -26,6 +27,14 @@ func NewYesNo(
 			Placeholder: placeholder,
 			Required:    required,
 		},
+	}
+}
+
+func (yn *YesNo) PrintPlaceholder() {
+	if yn.Required {
+		print(yn.Placeholder + " (y/n)*: ")
+	} else {
+		print(yn.Placeholder + " (y/n): ")
 	}
 }
 
