@@ -43,7 +43,7 @@ func buildLengthInput() *input.Number {
 	length.SetMin(3, true)
 	length.SetMessage("isFloat", "It is not a number.")
 	length.SetMessage("isInteger", "Must be an integer.")
-	length.SetMessage("minNumber", "Password cannot be less than 3 characters.")
+	length.SetMessage("minNumber", "Cannot be less than 3 characters.")
 
 	return length
 }
