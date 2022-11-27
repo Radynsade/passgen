@@ -79,7 +79,7 @@ func buildToFileInput() *input.YesNo {
 }
 
 func buildToClipboardInput() *input.YesNo {
-	tofile := input.NewYesNo("", "Copy password to clipboard?", false)
+	tofile := input.NewYesNo("", "Save password to clipboard?", false)
 
 	return tofile
 }
