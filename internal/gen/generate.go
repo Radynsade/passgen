@@ -35,7 +35,7 @@ func Generate(options *Options) string {
 
 	rand.Seed(time.Now().UnixNano())
 
-	for i := 0; i <= int(options.Length); i++ {
+	for i := 0; i < int(options.Length); i++ {
 		sb.WriteRune(symbols[randomInt(min, max)])
 	}
 
